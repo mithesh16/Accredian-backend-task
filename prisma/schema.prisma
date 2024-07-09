@@ -1,0 +1,19 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model referalcodes {
+  id        Int       @id @default(autoincrement())
+  name      String    @db.VarChar(20)
+  email     String    @db.VarChar(50)
+  fname     String    @db.VarChar(20)
+  femail    String    @db.VarChar(50)
+  refcode   String    @db.VarChar(5)
+  used      Boolean
+  createdat DateTime? @db.Date
+}
