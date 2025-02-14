@@ -5,9 +5,7 @@ const refRoutes=require('./routes/referalRoutes')
 const mysql = require('mysql');
 
 const app=express()
-app.use(cors({
-    origin: "https://accredianfrontendtaskreferral.netlify.app/"
-}));
+app.use(cors());
 
 
 app.use(bodyParser.json());
