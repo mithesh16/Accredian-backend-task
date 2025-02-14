@@ -3,8 +3,12 @@ const bodyParser = require('body-parser');
 const cors=require('cors')
 const refRoutes=require('./routes/referalRoutes')
 const mysql = require('mysql');
+
 const app=express()
-app.use(cors())
+app.use(cors({
+    origin:'*'
+}))
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 

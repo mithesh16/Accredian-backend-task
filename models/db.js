@@ -7,6 +7,13 @@ const db = mysql.createConnection({
     database: 'b3mcndyz0sd1qv7c2dtg',
     port: 3306
 });
+// const db = mysql.createConnection({
+//     host: 'database-1.cpuoewmc6p69.ap-south-1.rds.amazonaws.com',
+//     user: 'admin',
+//     password: 'Mithesh16',
+//     database: 'database-1',
+//     port: 3306
+// });
 
 db.connect((err) => {
     if (err) {
