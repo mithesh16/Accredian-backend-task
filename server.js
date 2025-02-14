@@ -6,9 +6,7 @@ const mysql = require('mysql');
 
 const app=express()
 app.use(cors({
-    origin: ['http://localhost:3000', 'https://accredianfrontendtaskreferral.netlify.app/'],
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+    origin: "https://accredianfrontendtaskreferral.netlify.app/"
 }));
 
 
