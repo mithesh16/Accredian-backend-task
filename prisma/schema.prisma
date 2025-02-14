@@ -9,11 +9,12 @@ datasource db {
 
 model referalcodes {
   id        Int       @id @default(autoincrement())
-  name      String    @db.VarChar(20)
-  email     String    @db.VarChar(50)
-  fname     String    @db.VarChar(20)
-  femail    String    @db.VarChar(50)
-  refcode   String    @db.VarChar(5)
+  referrer_name      String    @db.VarChar(20)
+  referrer_email     String    @db.VarChar(50)
+  refree_name     String    @db.VarChar(20)
+  refree_email    String    @db.VarChar(50)
+  ref_code   String    @db.VarChar(5)
+  ref_course   String    @db.VarChar(60)
   used      Boolean
   createdat DateTime? @db.Date
 }

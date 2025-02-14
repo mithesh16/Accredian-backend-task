@@ -7,7 +7,6 @@ const prisma = new PrismaClient()
 require('dotenv').config()
 
 
-
 const USER = 'mitheshsrini@gmail.com';
 const PASS='tgtdfgkdmqhwyznu';
 
@@ -29,9 +28,9 @@ exports.getRefs=async(req,res)=>{
 }
 
 exports.addRef=async(req,res)=>{
-    const {name,email,fname,femail}=req.body
+    const {name,email,refree_name,refree_email,course}=req.body
     let alreadyexists=false
-    const existingCode=await prisma.referalcodes.findMany({where:{email:email,femail:femail}, orderBy: {id: 'desc'},})
+    const existingCode=await prisma.referalcodes.findMany({where:{referrer_email:email,refree_email:refree_email,ref_course:course}, orderBy: {id: 'desc'},})
     if(existingCode.length>0){
         const today=new Date(); 
         const createdDate=existingCode[0].createdat;
@@ -51,11 +50,12 @@ exports.addRef=async(req,res)=>{
         let year = date.getFullYear();
         let now=`${year}-${month}-${day}`;
         const refdata = {
-            name: name,
-            email: email,
-            fname: fname,
-            femail: femail,
-            refcode: newRefCode[0],
+            referrer_name: name,
+            referrer_email: email,
+            refree_name: refree_name,
+            refree_email: refree_email,
+            ref_code: newRefCode[0],
+            ref_course:course,
             used: 0,
             createdat: now
         }
@@ -65,7 +65,7 @@ exports.addRef=async(req,res)=>{
                           db.query(query,refdata,(err,result)=>{
                               if(err) throw err;
                               else {
-                                  const email=sendEmail(refdata.refcode,femail)
+                                  const email=sendEmail(refdata.ref_code,refree_email)
                                    res.status(200).json({msg:'CodeAdded'});
                               }
                       })

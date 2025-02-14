@@ -1,0 +1,30 @@
+{
+  "defaults": {
+    "project": 1,
+    "env": 1
+  },
+  "actives": {
+    "project": 1,
+    "env": 1
+  },
+  "projects": [
+    {
+      "idx": 1,
+      "id": "12957000000007080",
+      "name": "accredian",
+      "domain": {
+        "id": "50024995030",
+        "name": "accredian-60037623758.development"
+      },
+      "timezone": "Asia/Kolkata",
+      "env": [
+        {
+          "idx": 1,
+          "id": "60037623758",
+          "name": "Development",
+          "type": 3
+        }
+      ]
+    }
+  ]
+}
